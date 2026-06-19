@@ -440,10 +440,19 @@ export default function Home() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="relative h-[380px] md:h-[480px] bg-zinc-950 border border-white/10 rounded-lg flex flex-col justify-end p-8 overflow-hidden group hover:border-[#FF3B30]/30 transition-all duration-500"
+          className="relative aspect-video w-full bg-zinc-950 border border-white/10 rounded-lg flex flex-col justify-end p-6 md:p-8 overflow-hidden group hover:border-[#FF3B30]/50 transition-all duration-500"
         >
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/35 to-transparent z-10" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-[#FF3B30]/5 rounded-full blur-[90px]" />
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover z-0 opacity-50 group-hover:scale-105 transition-transform duration-1000 ease-out"
+          >
+            <source src="/video2" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-[#FF3B30]/5 rounded-full blur-[90px] z-10" />
           <div className="z-20">
             <Award className="h-10 w-10 text-[#FF3B30] mb-5 group-hover:scale-110 transition-transform duration-300" />
             <h3 className="font-syncopate text-lg tracking-wider mb-3 uppercase font-bold">NO BULLSHIT TRAINING</h3>
