@@ -1,0 +1,71 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User {
+  id            String         @id @default(uuid())
+  name          String
+  email         String?        @unique
+  phone         String         @unique
+  createdAt     DateTime       @default(now())
+  profile       MemberProfile?
+  bookings      Booking[]
+}
+
+model MemberProfile {
+  id             String   @id @default(uuid())
+  userId         String   @unique
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  membershipTier String   @default("FREE_PASS") // MONTHLY, QUARTERLY, ANNUAL, FREE_PASS
+  weightKg       Float?
+  heightCm       Float?
+  fitnessGoal    String?  // Muscle Gain, Fat Loss, Endurance
+  macroProtein   Int?
+  macroCarbs     Int?
+  macroFats      Int?
+  updatedAt      DateTime @updatedAt
+}
+
+model Class {
+  id           String    @id @default(uuid())
+  name         String
+  trainerName  String
+  difficulty   String    @default("ALL_LEVELS") // ADVANCED, INTERMEDIATE, ALL_LEVELS
+  maxCapacity  Int
+  startTime    DateTime
+  endTime      DateTime
+  bookings     Booking[]
+}
+
+model Booking {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  classId   String
+  class     Class    @relation(fields: [classId], references: [id], onDelete: Cascade)
+  status    String   @default("CONFIRMED") // CONFIRMED, CANCELLED, WAITLIST
+  createdAt DateTime @default(now())
+}
+
+model Lead {
+  id             String   @id @default(uuid())
+  name           String
+  phone          String
+  fitnessGoal    String?
+  slotPreference String?
+  contacted      Boolean  @default(false)
+  createdAt      DateTime @default(now())
+}
+
+model Setting {
+  id    String @id
+  value String
+}
