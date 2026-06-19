@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Dumbbell,
@@ -18,7 +18,9 @@ import {
   Sparkles,
   ArrowRight,
   TrendingUp,
-  Award
+  Award,
+  Volume2,
+  VolumeX
 } from "lucide-react";
 import Link from "next/link";
 
@@ -37,6 +39,17 @@ interface GymClass {
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // Video Audio Reference & Toggle State
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoMuted, setVideoMuted] = useState(true);
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setVideoMuted(videoRef.current.muted);
+    }
+  };
 
   // Settings State
   const [settings, setSettings] = useState<Record<string, string>>({
@@ -276,18 +289,39 @@ export default function Home() {
       <section className="relative pt-36 pb-28 md:pt-56 md:pb-44 flex flex-col justify-center items-center text-center px-6 overflow-hidden">
         {/* Background Video */}
         <video
+          ref={videoRef}
           autoPlay
           loop
-          muted
+          muted={videoMuted}
           playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-25 pointer-events-none z-0"
+          className="absolute inset-0 w-full h-full object-cover opacity-80 pointer-events-none z-0"
         >
-          <source src="https://assets.mixkit.co/videos/preview/mixkit-man-training-with-barbell-42616-large.mp4" type="video/mp4" />
+          <source src="/video" type="video/mp4" />
         </video>
         
         {/* Gradient Overlay for Legibility */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/80 to-black pointer-events-none z-0" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/10 to-black pointer-events-none z-0" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#FF3B30]/5 rounded-full blur-[130px] pointer-events-none z-0" />
+
+        {/* Video Audio Control */}
+        <div className="absolute bottom-6 right-6 z-20">
+          <button
+            onClick={toggleMute}
+            className="bg-black/75 hover:bg-black/90 text-white border border-white/10 px-4 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest flex items-center gap-2 transition-all cursor-pointer shadow-[0_0_20px_rgba(0,0,0,0.5)]"
+          >
+            {videoMuted ? (
+              <>
+                <VolumeX className="h-4.5 w-4.5 text-[#FF3B30] animate-pulse" />
+                Unmute Audio
+              </>
+            ) : (
+              <>
+                <Volume2 className="h-4.5 w-4.5 text-green-400" />
+                Mute Audio
+              </>
+            )}
+          </button>
+        </div>
 
         <motion.div
           initial={{ opacity: 0, y: 40 }}
