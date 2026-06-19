@@ -237,7 +237,7 @@ export default function Home() {
   return (
     <div className="bg-black text-white min-h-screen selection:bg-[#FF3B30] selection:text-white font-sans">
       {/* Sticky Header */}
-      <nav className="fixed top-0 left-0 w-full z-50 bg-black/75 backdrop-blur-lg border-b border-white/5 px-6 py-4 flex justify-between items-center">
+      <nav className="fixed top-0 left-0 w-full z-50 bg-black/20 backdrop-blur-md border-b border-white/10 px-6 py-4 flex justify-between items-center shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
         <Link href="/" className="flex items-center gap-2">
           <Dumbbell className="h-6 w-6 text-[#FF3B30] rotate-45" />
           <span className="font-syncopate text-lg tracking-tight font-bold text-white">
