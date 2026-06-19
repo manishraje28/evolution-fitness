@@ -119,7 +119,7 @@ export default function Home() {
   };
 
   const weekdayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-  
+
   const filteredClasses = classes.filter((c) => {
     const classDay = new Date(c.startTime).getDay();
     return classDay === activeDayIndex;
@@ -236,13 +236,9 @@ export default function Home() {
 
   return (
     <div className="bg-black text-white min-h-screen selection:bg-[#FF3B30] selection:text-white font-sans">
-      {/* Sticky Header */}
-      <nav className="fixed top-0 left-0 w-full z-50 bg-black/20 backdrop-blur-md border-b border-white/10 px-6 py-4 flex justify-between items-center shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
-        <Link href="/" className="flex items-center gap-2">
-          <Dumbbell className="h-6 w-6 text-[#FF3B30] rotate-45" />
-          <span className="font-syncopate text-lg tracking-tight font-bold text-white">
-            EVOLUTION<span className="text-[#FF3B30]">.</span>
-          </span>
+      <nav className="fixed top-0 left-0 w-full z-50 bg-transparent pt-6 pb-4 px-6 flex justify-between items-center">
+        <Link href="/" className="relative flex items-center h-8 w-32">
+          <img src="/logo.png" alt="Evolution Fitness" className="absolute -top-2 left-0 h-20 w-auto object-contain drop-shadow-[0_0_15px_rgba(255,215,0,0.3)]" />
         </Link>
 
         {/* Desktop Navigation */}
@@ -298,7 +294,7 @@ export default function Home() {
         >
           <source src="/video" type="video/mp4" />
         </video>
-        
+
         {/* Gradient Overlay for Legibility */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/10 to-black pointer-events-none z-0" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#FF3B30]/5 rounded-full blur-[130px] pointer-events-none z-0" />
@@ -364,7 +360,7 @@ export default function Home() {
             <span>Evolve Or Remain The Same</span> <span className="text-[#FF3B30]">•</span>
             <span>Beast Mode</span> <span className="text-[#FF3B30]">•</span>
             <span>Infrared Recovery</span> <span className="text-[#FF3B30]">•</span>
-            
+
             <span>Lift Heavy</span> <span className="text-[#FF3B30]">•</span>
             <span>No Excuses</span> <span className="text-[#FF3B30]">•</span>
             <span>Evolve Or Remain The Same</span> <span className="text-[#FF3B30]">•</span>
@@ -525,11 +521,10 @@ export default function Home() {
               <button
                 key={idx}
                 onClick={() => setActiveDayIndex(idx)}
-                className={`px-4 py-2 text-[10px] font-bold uppercase tracking-widest rounded transition-all ${
-                  activeDayIndex === idx
+                className={`px-4 py-2 text-[10px] font-bold uppercase tracking-widest rounded transition-all ${activeDayIndex === idx
                     ? "bg-[#FF3B30] text-white shadow-[0_0_15px_rgba(255,59,48,0.3)]"
                     : "bg-zinc-900 border border-white/10 text-zinc-400 hover:text-white"
-                }`}
+                  }`}
               >
                 {name.substring(0, 3)}
               </button>
@@ -585,11 +580,10 @@ export default function Home() {
                         }
                       }}
                       disabled={isFull}
-                      className={`w-full sm:w-auto px-6 py-3 rounded text-[9px] font-bold uppercase tracking-widest transition-all ${
-                        isFull
+                      className={`w-full sm:w-auto px-6 py-3 rounded text-[9px] font-bold uppercase tracking-widest transition-all ${isFull
                           ? "bg-zinc-800 text-zinc-600 cursor-not-allowed"
                           : "bg-white text-black hover:bg-[#FF3B30] hover:text-white"
-                      }`}
+                        }`}
                     >
                       {isFull ? "Fully Booked" : "Book Slot"}
                     </button>
@@ -617,7 +611,7 @@ export default function Home() {
             if (settingVal) {
               try {
                 details = JSON.parse(settingVal);
-              } catch (e) {}
+              } catch (e) { }
             }
 
             const isPro = plan.id === "pricing_pro";
@@ -629,11 +623,10 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
-                className={`p-8 bg-zinc-900 border rounded-lg flex flex-col justify-between relative ${
-                  isPro
+                className={`p-8 bg-zinc-900 border rounded-lg flex flex-col justify-between relative ${isPro
                     ? "border-[#FF3B30] shadow-[0_0_35px_rgba(255,59,48,0.15)] md:scale-105 z-10"
                     : "border-white/10"
-                }`}
+                  }`}
               >
                 {isPro && (
                   <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#FF3B30] text-white text-[9px] font-black uppercase tracking-widest px-4 py-1.5 rounded-full">
@@ -655,11 +648,10 @@ export default function Home() {
                     ))}
                   </ul>
                 </div>
-                <a href="#pass" className={`w-full text-center py-4 rounded text-[9px] font-bold uppercase tracking-widest transition-all ${
-                  isPro
+                <a href="#pass" className={`w-full text-center py-4 rounded text-[9px] font-bold uppercase tracking-widest transition-all ${isPro
                     ? "bg-[#FF3B30] text-white hover:bg-red-600"
                     : "bg-white text-black hover:bg-zinc-200"
-                }`}>
+                  }`}>
                   Select Level
                 </a>
               </motion.div>
@@ -886,11 +878,10 @@ export default function Home() {
                 {chatMessages.map((msg, idx) => (
                   <div key={idx} className={`flex ${msg.sender === "user" ? "justify-end" : "justify-start"}`}>
                     <div
-                      className={`max-w-[80%] p-3 rounded leading-relaxed ${
-                        msg.sender === "user"
+                      className={`max-w-[80%] p-3 rounded leading-relaxed ${msg.sender === "user"
                           ? "bg-zinc-800 text-white rounded-br-none"
                           : "bg-black/60 border border-white/15 text-zinc-300 rounded-bl-none font-medium"
-                      }`}
+                        }`}
                     >
                       {msg.text}
                     </div>
@@ -933,7 +924,7 @@ export default function Home() {
             className="bg-[#25D366] text-white p-4 rounded-full shadow-[0_0_20px_rgba(37,211,102,0.3)] hover:scale-110 transition-all flex items-center justify-center"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16">
-              <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.949h.004c4.368 0 7.926-3.558 7.93-7.93a7.896 7.896 0 0 0-2.327-5.592zM7.994 14.52a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.69-1.703c-.2-.1-.1.185-.584-.329-.328-.348-.554-.654-.554-.654s-.022-.028-.002-.048c.15-.17.307-.383.457-.593.12-.17.13-.25.04-.36-.08-.11-.58-1.4-.79-1.91-.2-.5-.41-.42-.58-.42h-.42s-.36.02-.69.36c-.33.34-1.27 1.24-1.27 3.02 0 1.78 1.3 3.5 1.48 3.74.19.24 2.55 3.9 6.18 5.47.86.37 1.53.59 2.06.77.87.27 1.66.23 2.28.14.69-.1 2.11-.86 2.4-1.65.29-.79.29-1.47.2-1.61-.09-.13-.33-.2-.53-.3z"/>
+              <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.949h.004c4.368 0 7.926-3.558 7.93-7.93a7.896 7.896 0 0 0-2.327-5.592zM7.994 14.52a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.69-1.703c-.2-.1-.1.185-.584-.329-.328-.348-.554-.654-.554-.654s-.022-.028-.002-.048c.15-.17.307-.383.457-.593.12-.17.13-.25.04-.36-.08-.11-.58-1.4-.79-1.91-.2-.5-.41-.42-.58-.42h-.42s-.36.02-.69.36c-.33.34-1.27 1.24-1.27 3.02 0 1.78 1.3 3.5 1.48 3.74.19.24 2.55 3.9 6.18 5.47.86.37 1.53.59 2.06.77.87.27 1.66.23 2.28.14.69-.1 2.11-.86 2.4-1.65.29-.79.29-1.47.2-1.61-.09-.13-.33-.2-.53-.3z" />
             </svg>
           </a>
 
