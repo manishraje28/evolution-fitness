@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -13,8 +13,8 @@
   --color-dark-bg: #000000;
   --color-charcoal: #09090b;
   --color-zinc-card: #18181b;
-  --font-anton: "Anton", sans-serif;
-  --font-sans: "DM Sans", sans-serif;
+  --font-syncopate: "Syncopate", sans-serif;
+  --font-sans: "Space Grotesk", sans-serif;
 }
 
 html {
@@ -31,14 +31,15 @@ body {
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 ::-webkit-scrollbar-track {
   background: #000000;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1c1c1e;
-  border-radius: 4px;
+  background: #18181b;
+  border: 2px solid #000000;
+  border-radius: 5px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #FF3B30;
@@ -46,20 +47,20 @@ body {
 
 /* Glow Utilities */
 .glow-primary {
-  box-shadow: 0 0 20px var(--primary-glow);
+  box-shadow: 0 0 25px var(--primary-glow);
 }
 
 .text-glow-primary {
-  text-shadow: 0 0 10px var(--primary-glow);
+  text-shadow: 0 0 12px var(--primary-glow);
 }
 
 /* Custom Outlined Text */
 .text-outline {
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.15);
   color: transparent;
 }
 .text-outline-red {
-  -webkit-text-stroke: 1px #FF3B30;
+  -webkit-text-stroke: 1.5px #FF3B30;
   color: transparent;
 }
 
@@ -71,7 +72,7 @@ body {
   }
   50% {
     opacity: 1;
-    transform: scale(1.05);
+    transform: scale(1.03);
   }
 }
 
@@ -96,5 +97,5 @@ body {
 
 .marquee-track {
   display: inline-block;
-  animation: marquee 25s linear infinite;
+  animation: marquee 30s linear infinite;
 }

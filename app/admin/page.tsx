@@ -271,7 +271,7 @@ export default function AdminDashboard() {
             <ArrowLeft className="h-4 w-4" /> Back to Gym Site
           </Link>
           <div className="h-4 w-[1px] bg-white/10 hidden sm:block" />
-          <h1 className="font-anton text-xl tracking-wider hidden sm:block">
+          <h1 className="font-syncopate text-xl tracking-wider hidden sm:block">
             EVOLUTION <span className="text-[#FF3B30]">CONTROL HUB</span>
           </h1>
         </div>
@@ -337,19 +337,19 @@ export default function AdminDashboard() {
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
                 <div className="p-6 bg-zinc-950 border border-white/10 rounded">
                   <div className="text-zinc-500 font-bold uppercase text-[10px] tracking-wider mb-2">Total Website Leads</div>
-                  <div className="text-3xl md:text-4xl font-anton text-white">{metrics.totalLeads}</div>
+                  <div className="text-3xl md:text-4xl font-syncopate text-white">{metrics.totalLeads}</div>
                 </div>
                 <div className="p-6 bg-zinc-950 border border-white/10 rounded">
                   <div className="text-zinc-500 font-bold uppercase text-[10px] tracking-wider mb-2">Contacted Leads</div>
-                  <div className="text-3xl md:text-4xl font-anton text-green-400">{metrics.contactedLeads}</div>
+                  <div className="text-3xl md:text-4xl font-syncopate text-green-400">{metrics.contactedLeads}</div>
                 </div>
                 <div className="p-6 bg-zinc-950 border border-white/10 rounded">
                   <div className="text-zinc-500 font-bold uppercase text-[10px] tracking-wider mb-2">Pending Leads</div>
-                  <div className="text-3xl md:text-4xl font-anton text-[#FF3B30]">{metrics.uncontactedLeads}</div>
+                  <div className="text-3xl md:text-4xl font-syncopate text-[#FF3B30]">{metrics.uncontactedLeads}</div>
                 </div>
                 <div className="p-6 bg-zinc-950 border border-white/10 rounded">
                   <div className="text-zinc-500 font-bold uppercase text-[10px] tracking-wider mb-2">Confirmed Bookings</div>
-                  <div className="text-3xl md:text-4xl font-anton text-blue-400">{metrics.totalBookings}</div>
+                  <div className="text-3xl md:text-4xl font-syncopate text-blue-400">{metrics.totalBookings}</div>
                 </div>
               </div>
 
@@ -357,7 +357,7 @@ export default function AdminDashboard() {
               <div className="grid lg:grid-cols-3 gap-8">
                 {/* Signups Chart */}
                 <div className="p-6 bg-zinc-950 border border-white/10 rounded lg:col-span-2">
-                  <h3 className="font-anton text-lg tracking-widest uppercase mb-6">7-Day Leads Velocity</h3>
+                  <h3 className="font-syncopate text-lg tracking-widest uppercase mb-6">7-Day Leads Velocity</h3>
                   <div className="h-[220px]">
                     <ResponsiveContainer width="100%" height="100%">
                       <AreaChart data={leadChartData}>
@@ -379,7 +379,7 @@ export default function AdminDashboard() {
                 {/* Class Occupancy list */}
                 <div className="p-6 bg-zinc-950 border border-white/10 rounded flex flex-col justify-between">
                   <div>
-                    <h3 className="font-anton text-lg tracking-widest uppercase mb-6">Group Class Occupancy</h3>
+                    <h3 className="font-syncopate text-lg tracking-widest uppercase mb-6">Group Class Occupancy</h3>
                     <div className="space-y-4">
                       {classOccupancy.slice(0, 4).map((c) => (
                         <div key={c.id} className="space-y-2">
@@ -407,7 +407,7 @@ export default function AdminDashboard() {
               <div className="grid lg:grid-cols-2 gap-8">
                 {/* Recent leads */}
                 <div className="p-6 bg-zinc-950 border border-white/10 rounded">
-                  <h3 className="font-anton text-lg tracking-widest uppercase mb-4">Recent Leads</h3>
+                  <h3 className="font-syncopate text-lg tracking-widest uppercase mb-4">Recent Leads</h3>
                   <div className="divide-y divide-white/5">
                     {recentLeads.length === 0 ? (
                       <p className="text-xs py-4 text-zinc-500">No leads captured yet.</p>
@@ -431,7 +431,7 @@ export default function AdminDashboard() {
 
                 {/* Recent bookings */}
                 <div className="p-6 bg-zinc-950 border border-white/10 rounded">
-                  <h3 className="font-anton text-lg tracking-widest uppercase mb-4">Recent Class Bookings</h3>
+                  <h3 className="font-syncopate text-lg tracking-widest uppercase mb-4">Recent Class Bookings</h3>
                   <div className="divide-y divide-white/5">
                     {recentBookings.length === 0 ? (
                       <p className="text-xs py-4 text-zinc-500">No bookings made yet.</p>
@@ -457,7 +457,7 @@ export default function AdminDashboard() {
           {/* TAB 2: LEADS LIST */}
           {activeTab === "leads" && (
             <div className="p-6 bg-zinc-950 border border-white/10 rounded">
-              <h3 className="font-anton text-xl tracking-widest uppercase mb-6">Website Trial Pass Leads</h3>
+              <h3 className="font-syncopate text-xl tracking-widest uppercase mb-6">Website Trial Pass Leads</h3>
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs">
                   <thead>
@@ -505,7 +505,7 @@ export default function AdminDashboard() {
             <div className="grid lg:grid-cols-3 gap-8">
               {/* Creator Form */}
               <div className="p-6 bg-zinc-950 border border-white/10 rounded h-fit">
-                <h3 className="font-anton text-lg tracking-widest uppercase mb-6">Create Class Slot</h3>
+                <h3 className="font-syncopate text-lg tracking-widest uppercase mb-6">Create Class Slot</h3>
                 <form onSubmit={handleCreateClass} className="space-y-4">
                   <div>
                     <label className="block text-[10px] uppercase font-bold text-zinc-500 mb-1">Class Name</label>
@@ -604,7 +604,7 @@ export default function AdminDashboard() {
 
               {/* Class Lists Table */}
               <div className="p-6 bg-zinc-950 border border-white/10 rounded lg:col-span-2">
-                <h3 className="font-anton text-lg tracking-widest uppercase mb-6 font-bold">Scheduled Classes</h3>
+                <h3 className="font-syncopate text-lg tracking-widest uppercase mb-6 font-bold">Scheduled Classes</h3>
                 <div className="space-y-3">
                   {classes.map((c) => {
                     const startStr = new Date(c.startTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
@@ -638,7 +638,7 @@ export default function AdminDashboard() {
             <div className="grid lg:grid-cols-3 gap-8">
               {/* Simulator settings */}
               <div className="p-6 bg-zinc-950 border border-white/10 rounded h-fit">
-                <h3 className="font-anton text-lg tracking-widest uppercase mb-6">WhatsApp Test Bench</h3>
+                <h3 className="font-syncopate text-lg tracking-widest uppercase mb-6">WhatsApp Test Bench</h3>
                 <div className="space-y-4">
                   <div>
                     <label className="block text-[10px] uppercase font-bold text-zinc-500 mb-1">Sender Name (Simulated)</label>
