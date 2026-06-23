@@ -927,7 +927,7 @@ export default function Home() {
         <div className="flex gap-3">
           {/* Floating WhatsApp Action Button */}
           <a
-            href={`https://wa.me/919769763350?text=${encodeURIComponent(settings.whatsapp_template_message)}`}
+            href={`https://wa.me/919769763350?text=${encodeURIComponent(settings.whatsapp_template_message || "Hi Evolution Fitness! I'm interested in joining.")}`}
             target="_blank"
             rel="noopener noreferrer"
             title="Chat on WhatsApp"

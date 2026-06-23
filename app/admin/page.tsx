@@ -113,9 +113,26 @@ export default function AdminDashboard() {
     try {
       const res = await fetch("/api/dashboard");
       const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || "Failed to fetch stats");
+      }
       setDashboardData(data);
-    } catch (e) {
-      console.error(e);
+    } catch (e: any) {
+      console.error("Dashboard API Error:", e);
+      // Set fallback empty data so the UI doesn't crash
+      setDashboardData({
+        metrics: {
+          totalLeads: 0,
+          contactedLeads: 0,
+          uncontactedLeads: 0,
+          totalMembers: 0,
+          totalBookings: 0,
+        },
+        classOccupancy: [],
+        recentLeads: [],
+        recentBookings: [],
+        leadChartData: [],
+      });
     } finally {
       setLoading(false);
     }
