@@ -398,21 +398,22 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-28 px-6 max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+      <section id="about" className="py-28 px-6 max-w-7xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
+          className="max-w-3xl mb-16"
         >
           <div className="text-[10px] font-bold text-[#FF3B30] uppercase tracking-widest mb-3">Our Creed</div>
-          <h2 className="font-syncopate text-2xl md:text-4xl font-bold uppercase tracking-tight mb-8">
+          <h2 className="font-syncopate text-2xl md:text-5xl font-bold uppercase tracking-tight mb-8">
             WHO WE ARE
           </h2>
-          <p className="text-zinc-400 mb-8 leading-relaxed text-sm">
+          <p className="text-zinc-400 mb-8 leading-relaxed text-sm md:text-base">
             Established 8 years ago in Vartak Nagar, Thane West, Evolution Fitness was built for those who demand more from their training. We aren't a casual wellness center; we are a high-performance training ground.
           </p>
-          <div className="space-y-6">
+          <div className="grid sm:grid-cols-2 gap-6">
             <div className="flex items-start gap-4">
               <div className="h-7 w-7 rounded bg-[#FF3B30]/10 flex items-center justify-center text-[#FF3B30] shrink-0">
                 <Check className="h-4 w-4" />
@@ -434,29 +435,29 @@ export default function Home() {
           </div>
         </motion.div>
 
-        {/* Graphic Box */}
+        {/* Full-Width Cinematic Graphic Box */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="relative aspect-video w-full bg-zinc-950 border border-white/10 rounded-lg flex flex-col justify-end p-6 md:p-8 overflow-hidden group hover:border-[#FF3B30]/50 transition-all duration-500"
+          className="relative aspect-video w-full bg-zinc-950 border border-white/10 rounded-2xl flex flex-col justify-end p-8 md:p-16 overflow-hidden group hover:border-[#FF3B30]/40 transition-all duration-500 shadow-[0_0_50px_rgba(0,0,0,0.5)]"
         >
           <video
             autoPlay
             loop
             muted
             playsInline
-            className="absolute inset-0 w-full h-full object-cover z-0 opacity-50 group-hover:scale-105 transition-transform duration-1000 ease-out"
+            className="absolute inset-0 w-full h-full object-cover z-0 opacity-85 group-hover:scale-105 transition-transform duration-1000 ease-out"
           >
             <source src="/video2" type="video/mp4" />
           </video>
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-[#FF3B30]/5 rounded-full blur-[90px] z-10" />
-          <div className="z-20">
-            <Award className="h-10 w-10 text-[#FF3B30] mb-5 group-hover:scale-110 transition-transform duration-300" />
-            <h3 className="font-syncopate text-lg tracking-wider mb-3 uppercase font-bold">NO BULLSHIT TRAINING</h3>
-            <p className="text-xs text-zinc-400 leading-relaxed">
+          <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent z-10 pointer-events-none" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#FF3B30]/10 rounded-full blur-[120px] z-10 pointer-events-none" />
+          <div className="z-20 max-w-2xl">
+            <Award className="h-12 w-12 text-[#FF3B30] mb-6 group-hover:scale-110 transition-transform duration-300" />
+            <h3 className="font-syncopate text-2xl md:text-4xl tracking-wider mb-4 uppercase font-bold text-white">NO BULLSHIT TRAINING</h3>
+            <p className="text-sm md:text-base text-zinc-300 leading-relaxed drop-shadow-lg">
               We provide the atmosphere, the environment, and the tools. The rest is on you. Evolve your limits.
             </p>
           </div>
